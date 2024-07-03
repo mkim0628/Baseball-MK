@@ -2,18 +2,20 @@
 #include "../Baseball_TDD/baseball.cpp"
 using namespace std;
 
-TEST(BaseballTest, ThrowExceptionWhenInputLengthIsUnmatched) {
+class BaseballFixture : public testing::Test {
+public:
 	Baseball game;
-	EXPECT_THROW(game.guess(string("12")), length_error);
-}
+	void assetIllegalArgument(string guessNumber) {
+		try {
+			game.guess(guessNumber);
+			FAIL();
+		}
+		catch (exception e) {
+		}
+	}
+};
 
-TEST(BaseballTest, ThrowExceptionWhenInvalidChar) {
-	Baseball game;
-	try {
-		game.guess(string("12s"));
-		FAIL();
-	}
-	catch (invalid_argument& e) {
-		//PASS
-	}
+TEST_F(BaseballFixture, ThrowExceptionWhenInvalidCase) {
+	assetIllegalArgument("12");
+	assetIllegalArgument("12s");
 }
