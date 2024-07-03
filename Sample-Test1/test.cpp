@@ -18,4 +18,5 @@ public:
 TEST_F(BaseballFixture, ThrowExceptionWhenInvalidCase) {
 	assetIllegalArgument("12");
 	assetIllegalArgument("12s");
+	assetIllegalArgument("121");
 }

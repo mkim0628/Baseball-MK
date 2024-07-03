@@ -13,5 +13,16 @@ public:
 				throw invalid_argument("Must be number");
 			}
 		}
+		if (isDuplicatedNumber(guessNumber)) {
+			throw invalid_argument("Must not have the same number");
+		}
+
+	}
+private:
+	bool isDuplicatedNumber(const std::string& guessNumber)
+	{
+		return guessNumber[0] == guessNumber[1] ||
+			guessNumber[1] == guessNumber[2] ||
+			guessNumber[0] == guessNumber[2];
 	}
 };
