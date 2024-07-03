@@ -9,9 +9,9 @@ public:
 			throw length_error("Must be three letters.");
 		}
 		for (char ch : guessNumber) {
-			if (ch < '0' || ch > '9') {
-				throw invalid_argument("Must be number");
-			}
+			if (ch >= '0' && ch <= '9')
+				continue;
+			throw invalid_argument("Must be number");
 		}
 		if (isDuplicatedNumber(guessNumber)) {
 			throw invalid_argument("Must not have the same number");
