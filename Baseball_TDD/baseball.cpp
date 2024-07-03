@@ -15,7 +15,11 @@ public:
 		if (guessNumber == question) {
 			return { true, 3, 0 };
 		}
-		return { false, 0, 0 };
+		int strikes = 0, balls = 0;
+		for (int i = 0; i < 3; i++) {
+			if (guessNumber[i] == question[i]) strikes++;
+		}
+		return { false, strikes, balls };
 	}
 
 private:
