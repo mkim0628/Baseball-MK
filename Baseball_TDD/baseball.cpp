@@ -15,14 +15,17 @@ public:
 		if (guessNumber == question) {
 			return { true, 3, 0 };
 		}
-		int strikes = 0, balls = 0;
-		for (int i = 0; i < 3; i++) {
-			if (guessNumber[i] == question[i]) strikes++;
-		}
-		return { false, strikes, balls };
+		return { false, getStrikeNum(guessNumber), 0};
 	}
 
 private:
+	int getStrikeNum(const string& guessNumber) {
+		int strikes = 0;
+		for (int i = 0; i < 3; i++) {
+			if (guessNumber[i] == question[i]) strikes++;
+		}
+		return strikes;
+	}
 	void assertIllegalArgument(const std::string& guessNumber)
 	{
 		if (guessNumber.length() != 3) {
