@@ -10,7 +10,7 @@ public:
 		}
 		for (char ch : str) {
 			if (ch < '0' || ch > '9') {
-				throw invalid_argument("Must be dddnumber");
+				throw invalid_argument("Must be number");
 			}
 		}
 	}
