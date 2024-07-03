@@ -5,6 +5,12 @@ using namespace std;
 class Baseball {
 public:
 	void guess(const string& guessNumber) {
+		assertIllegalArgument(guessNumber);
+	}
+
+private:
+	void assertIllegalArgument(const std::string& guessNumber)
+	{
 		if (guessNumber.length() != 3) {
 			throw length_error("Must be three letters.");
 		}
@@ -16,9 +22,7 @@ public:
 		if (isDuplicatedNumber(guessNumber)) {
 			throw invalid_argument("Must not have the same number");
 		}
-
 	}
-private:
 	bool isDuplicatedNumber(const std::string& guessNumber)
 	{
 		return guessNumber[0] == guessNumber[1] ||
